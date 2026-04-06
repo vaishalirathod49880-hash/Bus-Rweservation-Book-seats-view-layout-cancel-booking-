@@ -1,0 +1,37 @@
+# Simple Bus Reservation System
+
+seats = [0,0,0,0,0]   # 0 = Available, 1 = Booked
+
+while True:
+    print("\n1. View Seats")
+    print("2. Book Seat")
+    print("3. Cancel Seat")
+    print("4. Exit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+        print("Seat Status:", seats)
+
+    elif choice == 2:
+        seat = int(input("Enter seat number (1-5): "))
+        if seats[seat-1] == 0:
+            seats[seat-1] = 1
+            print("Seat booked successfully")
+        else:
+            print("Seat already booked")
+
+    elif choice == 3:
+        seat = int(input("Enter seat number to cancel (1-5): "))
+        if seats[seat-1] == 1:
+            seats[seat-1] = 0
+            print("Booking cancelled")
+        else:
+            print("Seat is not booked")
+
+    elif choice == 4:
+        print("Thank you")
+        break
+
+    else:
+        print("Invalid choice")
